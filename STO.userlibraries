@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="Hibernate 4.2.2-4.2.2">
+    <archive path="F:/Documents/2 Course/2 Semester/Бази даних/Курсовая робота/Project/lib/hibernate-commons-annotations-4.0.2.Final.jar" />
+    <archive path="F:/Documents/2 Course/2 Semester/Бази даних/Курсовая робота/Project/lib/hibernate-jpa-2.0-api-1.0.1.Final.jar" />
+    <archive path="F:/Documents/2 Course/2 Semester/Бази даних/Курсовая робота/Project/lib/antlr-2.7.7.jar" />
+    <archive path="F:/Documents/2 Course/2 Semester/Бази даних/Курсовая робота/Project/lib/jboss-logging-3.1.0.GA.jar" />
+    <archive path="F:/Documents/2 Course/2 Semester/Бази даних/Курсовая робота/Project/lib/javassist-3.15.0-GA.jar" />
+    <archive path="F:/Documents/2 Course/2 Semester/Бази даних/Курсовая робота/Project/lib/jboss-transaction-api_1.1_spec-1.0.1.Final.jar" />
+    <archive path="F:/Documents/2 Course/2 Semester/Бази даних/Курсовая робота/Project/lib/dom4j-1.6.1.jar" />
+    <archive path="F:/Documents/2 Course/2 Semester/Бази даних/Курсовая робота/Project/lib/hibernate-core-4.2.2.Final.jar" />
+  </library>
+  <library name="controlsfx-8.20">
+    <archive path="C:/packages/controlsfx-8.20.8/fxsampler-1.0.8.jar" />
+    <archive path="C:/packages/controlsfx-8.20.8/controlsfx-8.20.8.jar" />
+    <archive path="C:/packages/controlsfx-8.20.8/openjfx-dialogs-1.0.2.jar" />
+    <archive path="C:/packages/controlsfx-8.20.8/controlsfx-samples-8.20.8.jar" />
+  </library>
+  <library name="controlsfx-8.20">
+    <archive path="C:/packages/controlsfx-8.20.8/fxsampler-1.0.8.jar" />
+    <archive path="C:/packages/controlsfx-8.20.8/controlsfx-8.20.8.jar" />
+    <archive path="C:/packages/controlsfx-8.20.8/openjfx-dialogs-1.0.2.jar" />
+    <archive path="C:/packages/controlsfx-8.20.8/controlsfx-samples-8.20.8.jar" />
+  </library>
+  <library name="javafx-src" />
+  <library name="mysql-connector-java-5.1.34">
+    <archive path="C:/packages/mysql-connector/mysql-connector-java-5.1.34.jar" />
+  </library>
+</eclipse-userlibraries>
+

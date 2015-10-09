@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.6115288220551378" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="400.0" minWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="run.order_type.OrderTypeController">
+    <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <children>
+                <TableView id="clientsTable" fx:id="typeTableView" editable="true" layoutY="14.0" prefHeight="398.0" prefWidth="508.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                        <TableColumn id="passportColumn" fx:id="idColumn" maxWidth="250.0" minWidth="58.0" prefWidth="89.0" text="Номер" />
+                        <TableColumn id="nameColumn" fx:id="nameColumn" editable="false" maxWidth="500.0" minWidth="100.0" prefWidth="263.0" text="Название" />
+                        <TableColumn fx:id="priceColumn" prefWidth="132.0" text="Цена" />
+                    </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+                </TableView>
+            </children></AnchorPane>
+        <AnchorPane minHeight="398.0" minWidth="300.0" prefHeight="398.0" prefWidth="300.0">
+            <children>
+                <TextField fx:id="searchTextField" layoutX="15.0" layoutY="29.0" onKeyReleased="#search" prefHeight="25.0" prefWidth="268.0" promptText="Введите значение" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="29.0" />
+                <Button fx:id="searchButton" layoutX="209.0" layoutY="265.0" mnemonicParsing="false" onAction="#search" onKeyPressed="#search" prefHeight="25.0" prefWidth="80.0" text="Поиск" AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="265.0" />
+                <HBox alignment="TOP_CENTER" layoutX="15.0" layoutY="312.0" prefHeight="25.0" prefWidth="277.0" spacing="16.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+                    <children>
+                        <Button fx:id="editButton" layoutX="12.0" layoutY="296.0" mnemonicParsing="false" onAction="#showEditOrderType" prefHeight="25.0" prefWidth="80.0" text="Изменить" AnchorPane.topAnchor="250.0" />
+                        <Button fx:id="deleteButton" layoutX="106.0" layoutY="296.0" mnemonicParsing="false" onAction="#deleteOrderType" prefHeight="25.0" prefWidth="80.0" text="Удалить" AnchorPane.topAnchor="250.0" />
+                        <Button fx:id="addButton" layoutX="211.0" layoutY="296.0" mnemonicParsing="false" onAction="#showAddOrderType" prefHeight="25.0" prefWidth="80.0" text="Добавить" AnchorPane.topAnchor="250.0" />
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </HBox>
+                <VBox layoutX="14.0" layoutY="91.0" spacing="5.0">
+                    <children>
+                        <RadioButton fx:id="idRadio" layoutX="18.0" layoutY="104.0" mnemonicParsing="false" onAction="#selectIdRadio" text="номеру" AnchorPane.leftAnchor="18.0" />
+                        <RadioButton fx:id="nameRadio" layoutX="18.0" layoutY="134.0" mnemonicParsing="false" onAction="#selectBrandRadio" text="названию" AnchorPane.leftAnchor="18.0" />
+                        <RadioButton fx:id="priceRadio" layoutX="19.0" layoutY="191.0" mnemonicParsing="false" onAction="#selectPriceRadio" text="цене" />
+                    </children>
+                </VBox>
+                <Label fx:id="successDeleteLabel" layoutX="20.0" layoutY="351.0" opacity="0.0" text="Услуга удалена успешно." textFill="#1ab514" AnchorPane.bottomAnchor="15.0" />
+                <Button fx:id="resetButton" layoutX="210.0" layoutY="299.0" mnemonicParsing="false" onAction="#resetDefault" prefHeight="25.0" prefWidth="80.0" text="Сбросить" AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="299.0" />
+                <Group layoutY="-23.0">
+                    <children>
+                        <Slider fx:id="priceSlider" layoutX="154.0" layoutY="155.0" onMouseDragged="#filterPrice" />
+                        <Label fx:id="maxPriceLabel" layoutX="281.0" layoutY="135.0" text="0" />
+                        <Label fx:id="minPriceLabel" layoutX="158.0" layoutY="135.0" text="0" />
+                    </children>
+                </Group>
+                <Group />
+                <Label fx:id="testLab" layoutX="140.0" layoutY="94.0" text="Label" visible="false" />
+                <Separator layoutX="143.0" layoutY="65.0" orientation="VERTICAL" prefHeight="116.0" prefWidth="6.0" />
+                <Label layoutX="47.0" layoutY="65.0" text="Поиск по:" />
+                <Label layoutX="187.0" layoutY="65.0" text="Фильтрация" />
+                <Label layoutX="208.0" layoutY="144.0" text="Цена" />
+            </children></AnchorPane>
+    </items>
+</SplitPane>

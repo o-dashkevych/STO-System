@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.6115288220551378" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="400.0" minWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="run.order1.OrderController">
+    <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <children>
+                <TableView id="clientsTable" fx:id="ordersTable" editable="true" layoutY="14.0" prefHeight="398.0" prefWidth="508.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                  <TableColumn fx:id="orderIdColumn" prefWidth="75.0" text="ID" />
+                        <TableColumn id="passportColumn" fx:id="dateColumn" maxWidth="250.0" minWidth="54.0" prefWidth="54.0" text="Дата" />
+                        <TableColumn id="nameColumn" fx:id="carIdColumn" editable="false" maxWidth="500.0" minWidth="54.0" prefWidth="60.0" text="№ авто" />
+                        <TableColumn id="birthColumn" fx:id="carNameColumn" editable="false" maxWidth="250.0" minWidth="76.0" prefWidth="85.0" text="Авто" />
+                        <TableColumn fx:id="masterIdColumn" prefWidth="55.0" text="№ мастера" />
+                        <TableColumn fx:id="masterColumn" prefWidth="83.0" text="Мастер" />
+                        <TableColumn fx:id="serviceColumn" prefWidth="52.0" text="Услуга" />
+                  <TableColumn fx:id="priceColumn" prefWidth="39.0" text="Цена" />
+                  <TableColumn fx:id="executedColumn" prefWidth="56.0" text="Выполнено" />
+                    </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+                </TableView>
+            </children></AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="300.0">
+            <children>
+                <TextField fx:id="searchTextField" layoutX="15.0" layoutY="34.0" onKeyReleased="#search" prefHeight="25.0" prefWidth="268.0" promptText="Введите значение" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="34.0" />
+                <Button fx:id="searchButton" layoutX="210.0" layoutY="270.0" mnemonicParsing="false" onAction="#search" onKeyPressed="#search" prefHeight="25.0" prefWidth="80.0" text="Поиск" AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="270.0" />
+                <HBox alignment="TOP_CENTER" layoutX="15.0" layoutY="338.0" prefHeight="25.0" prefWidth="277.0" spacing="16.0" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+                    <children>
+                        <Button fx:id="editButton" layoutX="12.0" layoutY="296.0" mnemonicParsing="false" onAction="#getEditOrder" prefHeight="25.0" prefWidth="80.0" text="Изменить" AnchorPane.topAnchor="250.0" />
+                        <Button fx:id="deleteButton" layoutX="106.0" layoutY="296.0" mnemonicParsing="false" onAction="#deleteOrder" prefHeight="25.0" prefWidth="80.0" text="Удалить" AnchorPane.topAnchor="250.0" />
+                        <Button fx:id="addButton" layoutX="211.0" layoutY="296.0" mnemonicParsing="false" onAction="#showAddOrderType" prefHeight="25.0" prefWidth="80.0" text="Добавить" AnchorPane.topAnchor="250.0" />
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </HBox>
+                <VBox layoutX="14.0" layoutY="96.0" spacing="5.0">
+                    <children>
+                        <RadioButton fx:id="dateRadio" layoutX="22.0" layoutY="164.0" mnemonicParsing="false" onAction="#selectDateRadio" text="дате" />
+                        <RadioButton fx:id="carIdRadio" layoutX="19.0" layoutY="191.0" mnemonicParsing="false" onAction="#selectCarIdRadio" text="№ авто" />
+                        <RadioButton fx:id="carRadio" layoutX="16.0" layoutY="216.0" mnemonicParsing="false" onAction="#selectCarRadio" text="Авто" />
+                        <RadioButton fx:id="masterIdRadio" layoutX="22.0" layoutY="242.0" mnemonicParsing="false" onAction="#selectMasterIdRadio" text="№ мастера" />
+                        <RadioButton fx:id="masterRadio" mnemonicParsing="false" onAction="#selectMasterRadio" text="мастеру" />
+                  <RadioButton fx:id="serviceRadio" mnemonicParsing="false" onAction="#selectServiceRadio" text="услуге" />
+                  <RadioButton fx:id="priceRadio" mnemonicParsing="false" onAction="#selectPriceRadio" text="цене" />
+                    </children>
+                </VBox>
+                <DatePicker fx:id="datePicker" layoutX="15.0" layoutY="270.0" onAction="#search" onKeyReleased="#search" prefHeight="25.0" prefWidth="179.0" promptText="Выберите дату рождения" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="270.0" />
+                <Label fx:id="successDeleteLabel" layoutX="20.0" layoutY="371.0" opacity="0.0" text="Заказ удален успешно." textFill="#1ab514" AnchorPane.bottomAnchor="10.0" />
+                <Button fx:id="resetButton" layoutX="210.0" layoutY="304.0" mnemonicParsing="false" onAction="#resetDefault" prefHeight="25.0" prefWidth="80.0" text="Сбросить" AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="304.0" />
+                <Group layoutX="-2.0" layoutY="-39.0">
+                    <children>
+                        <Slider fx:id="priceSlider" layoutX="154.0" layoutY="155.0" onMouseDragged="#filterPrice" />
+                        <Label fx:id="maxSalaryLabel" layoutX="281.0" layoutY="135.0" text="0" />
+                        <Label fx:id="minSalaryLabel" layoutX="158.0" layoutY="135.0" text="0" />
+                      <Label layoutX="208.0" layoutY="168.0" text="Цена" />
+                    </children>
+                </Group>
+                <Group layoutY="5.0" />
+                <Label fx:id="testLab" layoutX="140.0" layoutY="99.0" text="Label" visible="false" />
+                <Separator layoutX="143.0" layoutY="70.0" orientation="VERTICAL" prefHeight="177.0" prefWidth="6.0" />
+                <Label layoutX="47.0" layoutY="70.0" text="Поиск по:" />
+                <Label layoutX="187.0" layoutY="70.0" text="Фильтрация" />
+                <Label layoutX="262.0" layoutY="6.0" text="Заказы" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="6.0">
+                    <font>
+                        <Font name="System Bold" size="17.0" />
+                    </font>
+                </Label>
+            <VBox layoutX="156.0" layoutY="159.0" spacing="5.0" AnchorPane.leftAnchor="156.0" AnchorPane.topAnchor="159.0">
+               <children>
+                  <RadioButton fx:id="execRadio" layoutX="156.0" layoutY="159.0" mnemonicParsing="false" onAction="#selectExecRadio" text="Выполненые" />
+                  <RadioButton fx:id="notExecRadio" layoutX="156.0" layoutY="181.0" mnemonicParsing="false" onAction="#selectNotExecRadio" text="Невыполненные" />
+               </children>
+            </VBox>
+            </children></AnchorPane>
+    </items>
+</SplitPane>

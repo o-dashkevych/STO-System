@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="run.order_type.OrderTypeEditController">
+    <children>
+        <HBox layoutX="288.0" layoutY="240.0" spacing="25.0">
+            <children>
+                <Button fx:id="saveButton" layoutX="320.0" layoutY="223.0" mnemonicParsing="false" onAction="#save" prefHeight="30.0" prefWidth="100.0" text="Сохранить" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="223.0">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                <Button fx:id="cancelButton" layoutX="475.0" layoutY="223.0" mnemonicParsing="false" onAction="#getOrderTypeMenu" prefHeight="30.0" prefWidth="100.0" text="Назад">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+            </children>
+        </HBox>
+        <GridPane alignment="CENTER" layoutX="263.0" layoutY="125.0" prefHeight="75.0" prefWidth="482.0" AnchorPane.leftAnchor="263.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="125.0">
+            <children>
+                <Label text="Название">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="nameTextField" promptText="Введите" GridPane.columnIndex="1" />
+                <Label fx:id="nameAlertLabel" text="Введите название" textFill="#ff0505" visible="false" GridPane.columnIndex="2">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <padding>
+                        <Insets left="20.0" />
+                    </padding>
+                </Label>
+                <Label text="Цена" GridPane.rowIndex="1">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="priceTextField" promptText="Введите" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label fx:id="priceAlertLabel" prefHeight="17.0" prefWidth="139.0" text="Введите цену" textFill="RED" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets left="20.0" />
+                    </GridPane.margin>
+                </Label>
+            </children>
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="122.0" minWidth="10.0" prefWidth="117.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="144.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.0" minWidth="10.0" prefWidth="157.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+        </GridPane>
+        <Label fx:id="successAddLabel" layoutX="336.0" layoutY="309.0" opacity="0.0" text="Данные сохранены!" textFill="#139a01">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="450.0" minWidth="800.0" prefHeight="425.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="run.RootController">
+   <top>
+      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+            <ToggleButton fx:id="menuToggle" mnemonicParsing="false" onAction="#handleMainMenu" prefWidth="75.0" text="Меню">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </ToggleButton>
+            <Separator orientation="VERTICAL" prefHeight="30.0" prefWidth="16.0" />
+            <ToggleButton fx:id="orderToggle" mnemonicParsing="false" onAction="#handleOrderMenu" prefWidth="75.0" text="Заказы">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="clientToggle" mnemonicParsing="false" onAction="#handleClientMenu" prefWidth="75.0" text="Клиенты">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="carToggle" mnemonicParsing="false" onAction="#handleCarMenu" prefWidth="75.0" text="Авто">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="serviceToggle" mnemonicParsing="false" onAction="#handleOrderTypeMenu" prefWidth="75.0" text="Услуги">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="masterToggle" mnemonicParsing="false" onAction="#handleMasterMenu" prefWidth="75.0" text="Мастера">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </ToggleButton>
+            <Separator orientation="VERTICAL" prefHeight="30.0" prefWidth="13.0" />
+            <ToggleButton fx:id="reportToggle" mnemonicParsing="false" onAction="#handleReportMenu" prefWidth="75.0" text="Отчеты">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="queryToggle" mnemonicParsing="false" onAction="#handleQueryMenu" prefWidth="100.0" text="SQL запрос">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </ToggleButton>
+        </items>
+      </ToolBar>
+   </top>
+</BorderPane>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.6115288220551378" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="400.0" minWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="run.master.MasterController">
+    <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <children>
+                <TableView id="clientsTable" fx:id="mastersTable" editable="true" layoutY="14.0" prefHeight="398.0" prefWidth="508.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                        <TableColumn id="passportColumn" fx:id="passportColumn" maxWidth="250.0" minWidth="58.0" prefWidth="100.0" text="Паспорт" />
+                        <TableColumn id="nameColumn" fx:id="nameColumn" editable="false" maxWidth="500.0" minWidth="100.0" prefWidth="139.0" text="ФИО" />
+                        <TableColumn id="birthColumn" fx:id="birthColumn" editable="false" maxWidth="250.0" minWidth="88.0" prefWidth="177.0" text="День Рождения" />
+                  <TableColumn fx:id="acceptColumn" prefWidth="99.0" text="Дата принятия" />
+                  <TableColumn fx:id="categoryColumn" prefWidth="75.0" text="Категория" />
+                  <TableColumn fx:id="commissionColumn" prefWidth="75.0" text="Комисия" />
+                  <TableColumn fx:id="salaryColumn" prefWidth="75.0" text="Зарплата" />
+                    </columns>
+                </TableView>
+            </children></AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="300.0">
+            <children>
+                <TextField fx:id="searchTextField" layoutX="15.0" layoutY="34.0" onKeyReleased="#search" prefHeight="25.0" prefWidth="268.0" promptText="Введите значение" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="34.0" />
+                <Button fx:id="searchButton" layoutX="210.0" layoutY="270.0" mnemonicParsing="false" onAction="#searchByButton" onKeyPressed="#search" prefHeight="25.0" prefWidth="80.0" text="Поиск" AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="270.0" />
+                <HBox alignment="TOP_CENTER" layoutX="15.0" layoutY="338.0" prefHeight="25.0" prefWidth="277.0" spacing="16.0" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+                    <children>
+                        <Button fx:id="editButton" layoutX="12.0" layoutY="296.0" mnemonicParsing="false" onAction="#showEditMaster" prefHeight="25.0" prefWidth="80.0" text="Изменить" AnchorPane.topAnchor="250.0" />
+                        <Button fx:id="deleteButton" layoutX="106.0" layoutY="296.0" mnemonicParsing="false" onAction="#deleteMaster" prefHeight="25.0" prefWidth="80.0" text="Удалить" AnchorPane.topAnchor="250.0" />
+                        <Button fx:id="addButton" layoutX="211.0" layoutY="296.0" mnemonicParsing="false" onAction="#showAddMaster" prefHeight="25.0" prefWidth="80.0" text="Добавить" AnchorPane.topAnchor="250.0" />
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </HBox>
+            <VBox layoutX="14.0" layoutY="96.0" spacing="5.0">
+               <children>
+                        <RadioButton fx:id="nameRadio" layoutX="18.0" layoutY="104.0" mnemonicParsing="false" onAction="#selectNameRadio" text="ФИО" AnchorPane.leftAnchor="18.0" />
+                        <RadioButton fx:id="passportRadio" layoutX="18.0" layoutY="134.0" mnemonicParsing="false" onAction="#selectPassportRadio" text="паспорту" AnchorPane.leftAnchor="18.0" />
+                        <RadioButton fx:id="birthRadio" layoutX="22.0" layoutY="164.0" mnemonicParsing="false" onAction="#selectBirthRadio" text="дате рождения" />
+                  <RadioButton fx:id="salaryRadio" layoutX="19.0" layoutY="191.0" mnemonicParsing="false" onAction="#selectSalaryRadio" text="зарплате" />
+                  <RadioButton fx:id="commissionRadio" layoutX="16.0" layoutY="216.0" mnemonicParsing="false" onAction="#selectCommissionRadio" text="коммисии" />
+                  <RadioButton fx:id="categoryRadio" layoutX="22.0" layoutY="242.0" mnemonicParsing="false" onAction="#selectCategoryRadio" text="категории" />
+                  <RadioButton fx:id="acceptRadio" mnemonicParsing="false" onAction="#selectAcceptRadio" text="дате принятия" />
+               </children>
+            </VBox>
+                <DatePicker fx:id="datePicker" layoutX="15.0" layoutY="270.0" onAction="#search" onKeyReleased="#search" prefHeight="25.0" prefWidth="179.0" promptText="Выберите дату рождения" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="270.0" />
+                <Label fx:id="successDeleteLabel" layoutX="20.0" layoutY="371.0" opacity="0.0" text="Мастер удален успешно." textFill="#1ab514" AnchorPane.bottomAnchor="10.0" />
+                <Button fx:id="resetButton" layoutX="210.0" layoutY="304.0" mnemonicParsing="false" onAction="#resetDefault" prefHeight="25.0" prefWidth="80.0" text="Сбросить" AnchorPane.leftAnchor="210.0" AnchorPane.topAnchor="304.0" />
+            <Group layoutY="-18.0">
+               <children>
+                  <Slider fx:id="salarySlider" layoutX="154.0" layoutY="155.0" onMouseDragged="#filterSalary" />
+                  <Label fx:id="maxSalaryLabel" layoutX="281.0" layoutY="135.0" text="0" />
+                  <Label fx:id="minSalaryLabel" layoutX="158.0" layoutY="135.0" text="0" />
+               </children>
+            </Group>
+            <Group layoutY="5.0">
+               <children>
+                  <Slider fx:id="commisionSlider" layoutX="154.0" layoutY="204.0" onMouseDragged="#filterCommission" />
+                  <Label fx:id="minCommLabel" layoutX="157.0" layoutY="182.0" text="0" />
+                  <Label fx:id="maxCommLabel" layoutX="281.0" layoutY="182.0" text="0" textAlignment="CENTER" />
+               </children>
+            </Group>
+            <Label fx:id="testLab" layoutX="140.0" layoutY="99.0" text="Label" visible="false" />
+            <Separator layoutX="143.0" layoutY="70.0" orientation="VERTICAL" prefHeight="177.0" prefWidth="6.0" />
+            <Label layoutX="47.0" layoutY="70.0" text="Поиск по:" />
+            <Label layoutX="187.0" layoutY="70.0" text="Фильтрация" />
+            <Label layoutX="195.0" layoutY="150.0" text="Зарплата" />
+            <Label layoutX="195.0" layoutY="220.0" text="Коммисия" />
+            <Label layoutX="262.0" layoutY="6.0" text="Мастера" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="6.0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            </children></AnchorPane>
+    </items>
+</SplitPane>

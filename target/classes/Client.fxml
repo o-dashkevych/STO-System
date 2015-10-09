@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.6115288220551378" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="425.0" minWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="run.client.ClientController">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <TableView id="clientsTable" fx:id="clientsTable" editable="true" layoutY="14.0" prefHeight="398.0" prefWidth="508.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <columns>
+                <TableColumn id="passportColumn" fx:id="passportColumn" maxWidth="250.0" minWidth="58.0" prefWidth="100.0" text="Паспорт" />
+                <TableColumn id="nameColumn" fx:id="nameColumn" editable="false" maxWidth="500.0" minWidth="225.0" prefWidth="250.0" text="ФИО" />
+                  <TableColumn id="birthColumn" fx:id="birthColumn" editable="false" maxWidth="250.0" minWidth="120.0" prefWidth="150.0" text="День Рождения" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="-Infinity" prefHeight="398.0" prefWidth="300.0">
+         <children>
+            <TextField fx:id="searchTextField" layoutX="15.0" layoutY="62.0" onKeyReleased="#search" prefHeight="25.0" prefWidth="268.0" promptText="Введите значение" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="50.0" />
+            <Button fx:id="searchButton" layoutX="212.0" layoutY="90.0" mnemonicParsing="false" onAction="#search" onKeyPressed="#search" prefHeight="25.0" prefWidth="80.0" text="Поиск" AnchorPane.leftAnchor="212.0" AnchorPane.topAnchor="90.0" />
+            <HBox alignment="TOP_CENTER" layoutX="15.0" layoutY="312.0" prefHeight="25.0" prefWidth="277.0" spacing="15.0" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+               <children>
+                  <Button fx:id="editButton" layoutX="12.0" layoutY="296.0" mnemonicParsing="false" onAction="#showEditClient" prefHeight="25.0" prefWidth="80.0" text="Изменить" AnchorPane.topAnchor="250.0" />
+                  <Button fx:id="deleteButton" layoutX="106.0" layoutY="296.0" mnemonicParsing="false" onAction="#deleteClient" prefHeight="25.0" prefWidth="80.0" text="Удалить" AnchorPane.topAnchor="250.0" />
+                  <Button fx:id="addButton" layoutX="211.0" layoutY="296.0" mnemonicParsing="false" onAction="#showAddClient" prefHeight="25.0" prefWidth="80.0" text="Добавить" AnchorPane.topAnchor="250.0" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <Group layoutY="-29.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="90.0">
+               <children>
+                  <RadioButton fx:id="passportRadio" layoutX="15.0" layoutY="149.0" mnemonicParsing="false" onAction="#selectPassportRadio" text="по паспорту" AnchorPane.leftAnchor="15.0" />
+                  <RadioButton fx:id="nameRadio" layoutX="15.0" layoutY="119.0" mnemonicParsing="false" onAction="#selectNameRadio" text="по ФИО" AnchorPane.leftAnchor="15.0" />
+                  <RadioButton fx:id="birthRadio" layoutX="14.0" layoutY="178.0" mnemonicParsing="false" onAction="#selectBirthRadio" text="по дате рождения" />
+               </children>
+            </Group>
+            <DatePicker fx:id="datePicker" layoutX="15.0" layoutY="183.0" onAction="#search" onKeyReleased="#search" prefHeight="25.0" prefWidth="184.0" promptText="Выберите дату рождения" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="183.0" />
+            <Label fx:id="successDeleteLabel" layoutX="20.0" layoutY="351.0" opacity="0.0" text="Клиент удален успешно." textFill="#1ab514" AnchorPane.bottomAnchor="30.0" />
+            <Button fx:id="resetButton" layoutX="212.0" layoutY="129.0" mnemonicParsing="false" onAction="#resetDefault" prefHeight="25.0" prefWidth="80.0" text="Сбросить" AnchorPane.leftAnchor="212.0" AnchorPane.topAnchor="129.0" />
+            <Label layoutX="228.0" layoutY="14.0" text="Клиент">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+  </items>
+</SplitPane>

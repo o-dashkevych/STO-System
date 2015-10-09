@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - sto@localhost" uuid="85c17b31-2b96-4b4a-9921-20aee6401ded">
+    <database-info product="MySQL" version="5.6.24-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="sto"/>
+    <table name="car" schema="" catalog="sto" type="TABLE">
+      <column name="car_id" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="model" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="brand" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="year" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="client_passport_id" sqlType="VARCHAR" precision="18" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="car_id"/>
+      <foreign-key name="fk_car_client" columns="client_passport_id" ref-table="client" ref-schema="" ref-catalog="sto" ref-columns="passport_id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <exported-key name="fk_order_car" table="order1" schema="" catalog="sto" columns="car_car_id"/>
+      <index name="fk_car_client_idx" unique="false" columns="client_passport_id"/>
+    </table>
+    <table name="client" schema="" catalog="sto" type="TABLE">
+      <column name="passport_id" sqlType="VARCHAR" precision="18" scale="0" nullable="false" jdbcType="12"/>
+      <column name="birthday" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="name" sqlType="VARCHAR" precision="90" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="passport_id"/>
+      <exported-key name="fk_car_client" table="car" schema="" catalog="sto" columns="client_passport_id"/>
+      <index name="passport_id_UNIQUE" unique="true" columns="passport_id"/>
+    </table>
+    <table name="master" schema="" catalog="sto" type="TABLE">
+      <column name="passport_id" sqlType="VARCHAR" precision="18" scale="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="90" scale="0" nullable="false" jdbcType="12"/>
+      <column name="birthday" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="adoption_date" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="category" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="commission" sqlType="DECIMAL" precision="2" scale="2" nullable="false" jdbcType="3"/>
+      <column name="salary" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <primary-key name="PRIMARY" columns="passport_id"/>
+      <foreign-key name="fk_master_order_type" columns="category" ref-table="order_type" ref-schema="" ref-catalog="sto" ref-columns="type_id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <exported-key name="fk_order_master" table="order1" schema="" catalog="sto" columns="master_master_id"/>
+      <index name="master_id_UNIQUE" unique="true" columns="passport_id"/>
+      <index name="fk_master_order_type_idx1" unique="false" columns="category"/>
+    </table>
+    <table name="order1" schema="" catalog="sto" type="TABLE">
+      <column name="order_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="date_request" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="car_car_id" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="master_master_id" sqlType="VARCHAR" precision="18" scale="0" nullable="false" jdbcType="12"/>
+      <column name="order_type_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="price" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="executed" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="order_id"/>
+      <foreign-key name="fk_order_car" columns="car_car_id" ref-table="car" ref-schema="" ref-catalog="sto" ref-columns="car_id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="fk_order_master" columns="master_master_id" ref-table="master" ref-schema="" ref-catalog="sto" ref-columns="passport_id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="fk_order_order_type" columns="order_type_id" ref-table="order_type" ref-schema="" ref-catalog="sto" ref-columns="type_id" update-rule="0" delete-rule="0" deferrability="2"/>
+      <index name="order_id_UNIQUE" unique="true" columns="order_id"/>
+      <index name="fk_order_car1_idx" unique="false" columns="car_car_id"/>
+      <index name="fk_order_master_idx" unique="false" columns="master_master_id"/>
+      <index name="fk_order_order_type_idx" unique="false" columns="order_type_id"/>
+    </table>
+    <table name="order_type" schema="" catalog="sto" type="TABLE">
+      <column name="type_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="price" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="type_id"/>
+      <exported-key name="fk_master_order_type" table="master" schema="" catalog="sto" columns="category"/>
+      <exported-key name="fk_order_order_type" table="order1" schema="" catalog="sto" columns="order_type_id"/>
+      <index name="type_id_UNIQUE" unique="true" columns="type_id"/>
+    </table>
+  </data-source>
+</component>

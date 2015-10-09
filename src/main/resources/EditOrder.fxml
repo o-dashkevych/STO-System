@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="run.order1.OrderEditController">
+    <children>
+        <HBox layoutX="288.0" layoutY="320.0" spacing="25.0">
+            <children>
+                <Button fx:id="saveButton" layoutX="320.0" layoutY="223.0" mnemonicParsing="false" onAction="#save" prefHeight="30.0" prefWidth="100.0" text="Сохранить" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="223.0">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                <Button fx:id="cancelButton" layoutX="475.0" layoutY="223.0" mnemonicParsing="false" onAction="#getOrderMenu" prefHeight="30.0" prefWidth="100.0" text="Назад">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+            </children>
+        </HBox>
+        <GridPane alignment="CENTER" layoutX="221.0" layoutY="24.0" prefHeight="283.0" prefWidth="358.0" AnchorPane.leftAnchor="221.0" AnchorPane.rightAnchor="221.0" AnchorPane.topAnchor="24.0">
+            <children>
+                <Label text="Мастер" GridPane.rowIndex="6">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label text="Паспорт мастера" GridPane.rowIndex="7">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label text="№ авто" GridPane.rowIndex="5">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label text="Модель" GridPane.rowIndex="4">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="modelComboBox" onHidden="#fillCarIdCombo" prefHeight="25.0" prefWidth="491.0" promptText="Выберите" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <ComboBox fx:id="carIdComboBox" prefHeight="25.0" prefWidth="491.0" promptText="Выберите" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <Label text="Марка" GridPane.rowIndex="3">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label fx:id="orderNumLabel" text="Label" GridPane.columnIndex="1">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+            <Label text="№ заказа">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="brandComboBox" onHidden="#fillModelCombo" prefHeight="25.0" prefWidth="491.0" promptText="Выберите" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ComboBox fx:id="masterComboBox" onHidden="#fillMasterIdCombo" prefHeight="25.0" prefWidth="491.0" promptText="Выберите" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <ComboBox fx:id="masterIdComboBox" prefHeight="25.0" prefWidth="491.0" promptText="Выберите" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <ToggleButton fx:id="executedToggle" mnemonicParsing="false" onAction="#changeToggle" prefHeight="25.0" prefWidth="219.0" text="Невыполнено" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label text="Состояние" GridPane.rowIndex="8">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="categoryComboBox" onHidden="#fillMasterCombo" prefHeight="25.0" prefWidth="491.0" promptText="Выберите" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Услуга" GridPane.rowIndex="2">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="Дата оформления" GridPane.rowIndex="1">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="dateLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            </children>
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="10.0" prefWidth="132.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="214.0" minWidth="10.0" prefWidth="214.0" />
+            </columnConstraints>
+            <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+        </GridPane>
+        <Label fx:id="successAddLabel" layoutX="337.0" layoutY="366.0" opacity="0.0" text="Данные сохранены!" textFill="#139a01">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="647.0" layoutY="14.0" prefHeight="20.0" prefWidth="139.0" text="Изменение заказа" textAlignment="RIGHT">
+            <font>
+                <Font name="System Bold" size="15.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
