@@ -9,7 +9,7 @@
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="connection.username">root</property>
-        <property name="connection.password">Battle26541Field</property>
+        <property name="connection.password">Da951321793dA</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="hibernate.ejb.naming_strategy">run.NamingDBUtil</property>
         <mapping class="entity.Car"/>
